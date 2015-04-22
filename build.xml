@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="core" default="help">
+
+    <property file="plugins.properties" />
+
+    <target name="build" >
+        <sequential>
+            <antcall target="clean" />
+            <antcall target="-volley-jar" />
+            <antcall target="-pulltorefresh-jar" />
+            <antcall target="-pinnedlistview-jar" />
+            <antcall target="-eventbus-jar" />
+            <ant antfile="../Core.xml" target="jar" dir="Core"/>
+            <ant antfile="../Core.xml" target="clean" dir="Core"/>
+            <delete dir="${core.src}" />
+            <mkdir dir="${core.src}" />
+        </sequential>    
+    </target>
+    <target name="debug" >
+        <sequential>
+            <antcall target="clean" />
+            <antcall target="-volley-jar" />
+            <antcall target="-pulltorefresh-jar" />
+            <antcall target="-pinnedlistview-jar" />
+        </sequential>    
+    </target>    
+    <target name="clean" >
+    	<delete dir="${core.src}" />
+        <mkdir dir="${core.src}" />
+        <delete dir="${core.res}" />
+        <mkdir dir="${core.res}" />        
+        <ant antfile="../Core.xml" target="clean" dir="Core"/>     
+    </target>
+
+
+    <target name="-volley-jar" if="${volley.enable}" >
+		<ant antfile="Volley.xml" target="-jar" />
+    </target>
+    <target name="-pulltorefresh-jar" if="${pulltorefresh.enable}" >
+        <ant antfile="PullToRefresh.xml" target="-jar" />
+    </target>
+    <target name="-pinnedlistview-jar" if="${pinnedlistview.enable}" >
+        <ant antfile="PinnedListView.xml" target="-jar" />
+    </target>
+    <target name="-eventbus-jar" if="${eventbus.enable}" >
+        <ant antfile="EventBus.xml" target="-jar" />
+    </target>        
+</project>

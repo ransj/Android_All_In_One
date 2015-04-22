@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="core" default="help">
+    <target name="-jar" >
+        <copy todir="${core.src}">
+            <fileset dir="${pulltorefresh.src}" includes="**/*.java" />
+        </copy>
+         <copy todir="${core.res}/anim">
+            <fileset dir="${pulltorefresh.res}/anim" includes="*.xml" />
+        </copy>  
+        <copy todir="${core.res}/drawable">
+            <fileset dir="${pulltorefresh.res}/drawable"/>
+        </copy>
+        <copy todir="${core.res}/drawable-hdpi">
+            <fileset dir="${pulltorefresh.res}/drawable-hdpi"/>
+        </copy>
+        <copy todir="${core.res}/drawable-mdpi">
+            <fileset dir="${pulltorefresh.res}/drawable-mdpi"/>
+        </copy>
+        <copy todir="${core.res}/drawable-xhdpi">
+            <fileset dir="${pulltorefresh.res}/drawable-xhdpi"/>
+        </copy>
+        <copy todir="${core.res}/layout">
+            <fileset dir="${pulltorefresh.res}/layout"/>
+        </copy>
+        <copy todir="${core.res}/values">
+            <fileset dir="${pulltorefresh.res}/values" />
+            <globmapper from="*.xml" to="*_ptr.xml"/>
+        </copy>   
+        <replace dir="${core.src}" value="import os.ransj.framework.R">
+            <include name="**/*.java" />
+            <replacetoken>import com.handmark.pulltorefresh.library.R</replacetoken>
+        </replace>                                                       
+    </target>    
+</project>
