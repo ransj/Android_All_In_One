@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="core" default="help">
     <target name="-jar" >
-        <copy todir="${core.src}">
+        <copy todir="${core.src}" overwrite="true">
             <fileset dir="${pulltorefresh.src}" includes="**/*.java" />
         </copy>
-         <copy todir="${core.res}/anim">
+         <copy todir="${core.res}/anim" overwrite="true">
             <fileset dir="${pulltorefresh.res}/anim" includes="*.xml" />
         </copy>  
-        <copy todir="${core.res}/drawable">
+        <copy todir="${core.res}/drawable" overwrite="true">
             <fileset dir="${pulltorefresh.res}/drawable"/>
         </copy>
-        <copy todir="${core.res}/drawable-hdpi">
+        <copy todir="${core.res}/drawable-hdpi" overwrite="true">
             <fileset dir="${pulltorefresh.res}/drawable-hdpi"/>
         </copy>
-        <copy todir="${core.res}/drawable-mdpi">
+        <copy todir="${core.res}/drawable-mdpi" overwrite="true">
             <fileset dir="${pulltorefresh.res}/drawable-mdpi"/>
         </copy>
-        <copy todir="${core.res}/drawable-xhdpi">
+        <copy todir="${core.res}/drawable-xhdpi" overwrite="true">
             <fileset dir="${pulltorefresh.res}/drawable-xhdpi"/>
         </copy>
-        <copy todir="${core.res}/layout">
+        <copy todir="${core.res}/layout" overwrite="true">
             <fileset dir="${pulltorefresh.res}/layout"/>
         </copy>
-        <copy todir="${core.res}/values">
+        <copy todir="${core.res}/values" overwrite="true">
             <fileset dir="${pulltorefresh.res}/values" />
             <globmapper from="*.xml" to="*_ptr.xml"/>
         </copy>   

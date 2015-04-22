@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="volley" default="help">
     <target name="-jar" >
-        <copy todir="${core.src}">
+        <copy todir="${core.src}" overwrite="true">
 			<fileset dir="${volley.src}" includes="**/*.java" />
 		</copy>	
     </target>
